@@ -1,7 +1,8 @@
 package murilo.crud.infra.entidades;
 
-import org.hibernate.annotations.Table;
+import  jakarta.persistence.Table;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +18,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@Table(name = "usuarios")
+@Table(name = "usuarios")
 @Entity
 public class Usuario {
 
@@ -25,5 +26,9 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO) 
     Integer id;
 
+    @Column(name = "email", unique = true)
+    private String email;
 
+    @Column(name = "nome")
+    private String nome;
 }
